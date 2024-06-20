@@ -120,25 +120,25 @@ module.exports = merge(commonConfig, {
               },
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  PostCssAutoprefixerPlugin(),
-                  PostCssRTLCSS(),
-                  CssNano(),
-                  PostCssCustomMediaCSS(),
-                  ...extraPostCssPlugins,
-                ],
-              },
-            },
-          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     postcssOptions: {
+          //       plugins: [
+          //         PostCssAutoprefixerPlugin(),
+          //         PostCssRTLCSS(),
+          //         CssNano(),
+          //         PostCssCustomMediaCSS(),
+          //         ...extraPostCssPlugins,
+          //       ],
+          //     },
+          //   },
+          // },
           'resolve-url-loader',
           {
             loader: 'sass-loader', // compiles Sass to CSS
             options: {
-              sourceMap: true,
+              sourceMap: false,
               sassOptions: {
                 includePaths: [
                   path.join(process.cwd(), 'node_modules'),
