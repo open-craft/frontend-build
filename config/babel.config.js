@@ -1,16 +1,20 @@
 module.exports = {
   presets: [
-    '@babel/preset-env',
+    ['@babel/preset-env', {
+      // Preserving modules (modules: false) is required for webpack tree-shaking.
+      modules: false,
+    }],
     [
       '@babel/preset-react', {
         runtime: 'automatic',
+        // Per Babel docs, set both of these to true "if targeting modern browsers".
+        // All our target browsers support {...spread} and Object.assign() etc.
+        useSpread: true,
+        useBuiltIns: true,
       },
     ],
   ],
   plugins: [
-    '@babel/plugin-proposal-object-rest-spread',
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-syntax-dynamic-import',
     [
       'transform-imports',
       {
